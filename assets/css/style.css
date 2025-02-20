@@ -6,72 +6,70 @@
 
 /* home section */
 
+/* Ensure the container scales properly */
+.container-fluid {
+  padding: 0 15px; /* Adds space on smaller screens */
+}
+
+/* Hero Section */
 .slider-area {
   background: url('../img/hero/background.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   position: relative;
   width: 100%;
   height: 100vh; /* Full screen */
-
-  align-items: left;
+  display: flex;
+  align-items: center; /* Centers vertically */
   justify-content: center;
-  text-align: left;
-  padding: 50px 0; /* Added padding to prevent cropping */
-  overflow: hidden; /* Ensures content does not overflow */
+  text-align: center;
+  padding: 50px 0; /* Prevents cropping */
+  overflow: hidden;
 }
 
-.slider-area::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* Dark overlay for readability */
-}
-
-
+/* Hero Section */
 .hero__caption {
   position: relative;
   z-index: 2;
-  max-width: 80%; /* Ensures text does not extend too wide */
-  text-align: left; /* Centers text */
-  padding: 20px; /* Adjusted padding */
-  margin: 0 auto; /* Centers the div */
+  max-width: 80%; /* Adjusts width for better text wrapping */
+  text-align: left; /* Aligns text to the left */
+  padding: 20px;
+  margin-left: 5%; /* Adds space from the left */
 }
 
+/* Text Styling */
 .hero__caption h1 {
-
   font-weight: bold;
-  line-height: 1.1; /* Prevents unnecessary line breaks */
-  white-space: nowrap; /* Forces single-line text */
-  font-size: 60px;
-  color: rgb(228, 236, 228); 
-  margin-top: -20px;
+  font-size: 3.5rem;
+  color: rgb(228, 236, 228);
+  margin-top: -10px;
+  white-space: normal; /* Allows wrapping */
 }
 
 .hero__caption h2 {
-  font-size: 4rem;
-  line-height: 2; 
-  font-style: bold;
+  font-size: 2.8rem;
+  line-height: 1.5;
   color: aquamarine;
 }
 
 .hero__caption h3 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 400;
-  line-height: 1; 
   color: #fc8f00;
 }
 
-@media (max-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero__caption {
+      max-width: 90%;
+      margin-left: 5%;
+  }
+
   .hero__caption h1 {
-      font-size: 3rem; /* Adjusts for mobile */
-      white-space: normal; /* Allows text wrapping */
+      font-size: 3rem;
   }
 
   .hero__caption h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
   }
 
   .hero__caption h3 {
@@ -79,11 +77,55 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero__caption {
+      max-width: 100%;
+      padding: 10px;
+      margin-left: 5%;
+      text-align: left; /* Ensures text remains left-aligned */
+  }
 
-/* about section */
+  .hero__caption h1 {
+      font-size: 2.5rem;
+  }
+
+  .hero__caption h2 {
+      font-size: 1.8rem;
+  }
+
+  .hero__caption h3 {
+      font-size: 1.2rem;
+  }
+}
+
+
+/* Resume Button Fix */
+.resume-btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  border-radius: 5px;
+  background-color: #fc8f00;
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ensures button fits on all screens */
+@media (max-width: 768px) {
+  .resume-btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+      width: 90%; /* Makes sure it's visible */
+  }
+}
 
 
 
+
+/* About Section */
 .about-area1 {
   background: url('../img/hero/about-bg.jpg') no-repeat center center/cover;
   background-attachment: fixed;
@@ -92,11 +134,9 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+  padding: 50px 0; /* Adjusted for proper spacing */
+  margin-bottom: 0;
   overflow: hidden;
-  margin-bottom: -100px;
 }
 
 .about-area1::before {
@@ -109,255 +149,230 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* Profile Image */
+
+.profile-img {
+  width: 100%; /* Ensures it scales with screen */
+  max-width: 400px; /* Larger default size */
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto; /* Centers image */
+}
+
+/* About Text */
 .about-caption {
   position: relative;
   z-index: 2;
   color: #ffffff;
-  padding: 50px 0;
+  padding: 20px;
 }
 
 .about-caption h2 {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: #f8f9fa;
 }
 
+/* Adjust text styling for smaller screens */
+.about-caption p {
+  font-size: 1.3em;
+  color: #47ffd1;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .about-caption h2 {
+      font-size: 3rem;
+      text-align: center;
+  }
+
+  .about-caption p {
+      font-size: 1.2em;
+      text-align: justify;
+  }
+
+  .profile-img {
+      max-width: 250px; /* Scales down on medium screens */
+  }
+}
+
 @media (max-width: 768px) {
+  .about-area1 {
+      display: block;
+      padding: 30px 15px;
+  }
+
+  .about-caption {
+      text-align: center; /* Centers text on mobile */
+  }
+
   .about-caption h2 {
       font-size: 2.5rem;
   }
 
   .about-caption p {
-      font-size: 1.2em;
-      color: #00ffc8;
+      font-size: 1.1em;
+  }
+
+  .profile-img {
+      max-width: 200px; /* Scales down on small screens */
   }
 }
+
+
+
+
+
+
+
 
 /* skills section */
 
-
-.skills-container{
+.skills-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Ensures proper wrapping */
 }
 
-        .skills-area {
-            background: url('../img/hero/skill-bg.jpg') no-repeat center center/cover;
-            width: 100%;
-            min-height: 100vh;
-            position: relative;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-            overflow: hidden;
-        }
+/* Skill Section */
+.skills-area {
+  background: url('../img/hero/skill-bg.jpg') no-repeat center center/cover;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  overflow: hidden;
+}
 
-        .skills-area::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-        }
+.skills-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
 
-        .skills-content {
-            position: relative;
-            z-index: 4;
-            text-align: center;
-        }
+/* Skill Box */
+.mini-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  width: 260px; /* Fixed width for larger screens */
+  height: auto; /* Auto height to prevent cut-off */
+  margin: 15px; /* Ensures spacing between boxes */
+  transition: all 0.3s ease;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+}
 
-        .mini-box {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-            gap: 10px; 
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            width: 250px;
-            height: 250px;
-            margin: 20px;
-            transition: all 0.3s ease;
-            text-align: center;
-            overflow: hidden;
-            word-wrap: break-word;
-            white-space: normal;
-        }
+.mini-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.336);
+}
 
-        .mini-box:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-        }
+/* Icon Image */
+.mini-box img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+}
 
-        .mini-box img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-        }
+/* Skill Title */
+.mini-box strong {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
 
-        .mini-box strong {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 10px;
-            display: block;
-            text-align: center;
-        }
+/* Skill Description */
+.mini-box span {
+  font-size: 1.6rem;
+  color: #ddd;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 90%;
+}
 
-        .mini-box span {
-            font-size: 1rem;
-            color: #ddd;
-            text-align: center;
-            word-wrap: break-word;
-            max-width: 90%;
-            overflow-wrap: break-word;
-        }
+/* Title Styling */
+.skills-caption h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ede9ee;
+  text-align: center;
+}
 
-        .skills-caption h1 {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #ede9ee;
-            text-align: center;
-       }
-/* 
----------------------------------------------
-parallax & home seperator
---------------------------------------------- 
-*/
-.mini {
-    min-height: 215px;
-    overflow: hidden;
-    position: relative;
-    padding-top: 90px;
-    padding-bottom: 90px;
+/* RESPONSIVE DESIGN */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+  .skills-caption h1 {
+      font-size: 3rem;
   }
-  
-  .mini:before {
-    content: '';
-    position: absolute;
-    width: 140%;
-    height: 140%;
-    opacity: .95;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-image: url(../images/work-process-bg.png);
-    z-index: 2;
-    top: -20%;
-    left: -20%;
+
+  .mini-box {
+      width: 220px;
+      height: auto;
+      margin: 10px;
   }
-  
-  .mini .mini-content {
-    position: relative;
-    z-index: 3;
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  .skills-area {
+      padding: 30px 10px;
   }
-  
-  .mini .mini-content .info {
-    text-align: center;
-    color: #fff;
-    padding-top: 30px;
-    padding-bottom: 20px;
+
+  .skills-caption h1 {
+      font-size: 2.5rem;
   }
-  
-  .mini .mini-content .info small {
-    display: block;
-    font-weight: 400;
-    font-size: 13px;
-    margin-bottom: 5px;
+
+  .mini-box {
+      width: 90%; /* Ensures full width on mobile */
+      height: auto; /* Prevents cutoff */
+      padding: 20px;
+      margin: 10px auto; /* Centers the boxes */
+      margin-bottom: 70px;
   }
-  
-  .mini .mini-content .info strong {
-    font-weight: 700;
-    font-size: 17px;
-    margin-bottom: 40px;
-    display: block;
+
+  .mini-box img {
+      width: 60px;
+      height: 60px;
   }
-  
-  .mini .mini-content .info h1 {
-    color: #fff;
-    font-weight: 500;
-    font-size: 28px;
-    letter-spacing: 0.25px;
-    margin-bottom: 30px;
+}
+
+/* Extra Small Screens (Fixing Last Box Cut-off) */
+@media (max-width: 576px) {
+  .mini-box {
+      width: 95%; /* Slightly smaller for better fit */
+      padding: 15px;
+      margin-bottom: 70px; /* Extra margin at bottom to prevent cutoff */
   }
-  
-  .mini .mini-content .info p {
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-    color: #fff;
-    letter-spacing: 0.25px;
-    line-height: 26px;
-    font-weight: 400;
-    font-size: 15px;
+
+  .skills-caption h1 {
+      font-size: 2rem;
   }
-  
-  .mini .mini-content .info p span {
-    text-decoration: underline;
+
+  .mini-box img {
+      width: 55px;
+      height: 55px;
   }
-  
-  .mini .mini-content .mini-box {
-    display: block;
-    background: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
-    margin-bottom: 30px;
-    position: relative;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    text-align: center;
-  }
-  
-  .mini .mini-content .mini-box:hover {
-    margin-top: -10px;
-  }
-  
-  .mini .mini-content .mini-box:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    background: #fff;
-    width: 100%;
-    opacity: .15;
-    height: 100%;
-    bottom: -10px;
-    left: 0px;
-    right: -20px;
-    margin: auto;
-    border-radius: 20px;
-  }
-  
-  .mini .mini-content .mini-box i {
-    display: block;
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .mini .mini-content .mini-box span {
-    display: block;
-    font-weight: 400;
-    font-size: 14px;
-    color: #777;
-    letter-spacing: .75px;
-  }
-  
-  .mini .mini-content .mini-box strong {
-    display: block;
-    font-weight: 400;
-    font-size: 17px;
-    color: #1e1e1e;
-    letter-spacing: 0.25px;
-    margin-bottom: 5px;
-    margin-top: 20px;
-  }
+}
+
+
 
   /*------------------------------------------------------------------
   	[Work]
@@ -388,6 +403,7 @@ parallax & home seperator
   background: rgba(0, 0, 0, 0.3);
 }
 
+
 .projects-content {
   position: relative;
   z-index: 4;
@@ -400,10 +416,13 @@ parallax & home seperator
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .masonry-grid-item {
   width: 300px;
+  min-width: 280px; 
 }
 
 .work {
@@ -447,8 +466,6 @@ parallax & home seperator
 
 
 
-
-
 /* certificates */
 
 
@@ -458,10 +475,9 @@ parallax & home seperator
   padding: 80px 0;
   position: relative;
   display: flex;
-  height: 100vh; /* Full screen */
-  background-attachment: fixed;
   align-items: center;
   overflow: hidden;
+  background-attachment: fixed;
 }
 
 .certifications-area::before {
@@ -474,232 +490,56 @@ parallax & home seperator
   background: rgba(0, 0, 0, 0.3);
 }
 
+.gallery-area {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .gallery-area .box {
   position: relative;
+  width: 30%; /* 3 items per row by default */
+  min-width: 280px;
 }
 
-.gallery-area .box .gallery-img {
-  height: 565px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.gallery-area .box .overlay {
-  position: absolute;
-  text-align: center;
+.gallery-area .box img {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 0;
-  left: 0;
-}
-
-
-.box img {
-  width: 100%;
-  height: 100%;
+  height: auto;
   transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
-.box:hover img {
+.gallery-area .box:hover img {
   transform: scale(1.05);
 }
 
-.box figcaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.box:hover figcaption {
-  opacity: 1;
-}
-
-
-
-
-/* line 3, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box {
-  position: relative;
-}
-
-/* line 6, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .gallery-img {
-  height: 565px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* line 11, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .big-img {
-  height: 900px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 11, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-  .gallery-area .box .big-img {
-    height: 435px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 11, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-  .gallery-area .box .big-img {
-    height: 435px;
-  }
-}
-
-/* line 20, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .small-img {
-  height: 535px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 20, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-  .gallery-area .box .small-img {
-    height: 380px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 20, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-  .gallery-area .box .small-img {
-    height: 335px;
-  }
-}
-
-@media (max-width: 575px) {
-  /* line 20, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-  .gallery-area .box .small-img {
-    height: 335px;
-  }
-}
-
-/* line 33, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
 .gallery-area .box figcaption {
-  position: absolute;
-  bottom: 17px;
-  z-index: 1;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 400;
-  left: 15px;
-}
-
-/* line 43, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .overlay {
-  position: absolute;
   text-align: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 0;
-  left: 0;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  color: white;
 }
 
-/* line 51, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .overlay .overlay-content {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+/* 🟢 RESPONSIVE FIXES */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+  .gallery-area .box {
+    width: 45%; /* 2 items per row */
+  }
 }
 
-/* line 58, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .overlay .overlay-content a {
-  color: #FFEFAE;
-  display: inline-block;
-  text-align: center;
-  font-size: 37px;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
-  transform: scale(1);
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  .gallery-area .box {
+    width: 90%; /* 1 item per row */
+  }
+  
+  .gallery-area .box img {
+    height: auto; /* Ensure full visibility */
+  }
 }
-
-/* line 68, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box .overlay .overlay-content a:hover {
-  transform: scale(1.08);
-}
-
-/* line 74, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.gallery-area .box.snake {
-  position: relative;
-  overflow: hidden;
-}
-
-/* line 81, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.box {
-  position: relative;
-}
-
-/* line 83, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.box img {
-  width: 100%;
-}
-
-/* line 86, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.box.snake {
-  position: relative;
-  overflow: hidden;
-}
-
-/* line 91, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_gallery.scss */
-.overlay {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 0;
-  left: 0;
-}
-
-
-/* line 119, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_all_startups.scss */
-.all-starups-area .starups-img {
-  width: 50%;
-  background-image: url(../img/gallery/startup_bg.png);
-  background-size: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left top;
-  height: 700px;
-}
-
-/* line 14, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_all_startups.scss */
-.all-starups-area .starups {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  padding-left: 19%;
-  background-image: url(../img/gallery/section_bg03.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background: #071112;
-  height: 700px;
-}
-
-/* line 409, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
-.single-gallery-image {
-  margin-top: 30px;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: cover !important;
-  height: 200px;
-}
-
-
 
 
 
@@ -719,201 +559,254 @@ parallax & home seperator
 
 /* Centering the Education Title */
 .big-2 {
-  font-size: 3rem; /* Adjust size if needed */
+  font-size: 3rem;
   font-weight: bold;
   text-align: center;
   display: block;
   width: 100%;
-  color: white; /* Match the color from your image */
+  color: white;
   margin-bottom: 20px;
 }
 
+/* Timeline Container */
+.timeline {
+  position: relative;
+  max-width: 800px; /* Increased width for better visibility */
+  margin: auto;
+  padding: 20px;
+  color: black;
+  font-size: large;
+}
 
-		/* Timeline Container */
-		.timeline {
-			position: relative;
-			max-width: 600px;
-			margin: auto;
-			padding: 20px;
-      color: black;
-      font-size: large;
-		}
-	
-		/* Timeline Line */
-		.timeline::after {
-			content: '';
-			position: absolute;
-			width: 3px;
-			background: #007bff;
-			top: 0;
-			bottom: 0;
-			left: 50%;
-			margin-left: -1.5px;
-		}
-	
-		/* Timeline Boxes */
-		.timeline-box {
-			position: relative;
-			width: 48%;
-			padding: 10px;
-			box-sizing: border-box;
-		}
-	
-		.timeline-box:nth-child(odd) {
-			left: 0;
-			text-align: right;
-		}
-	
-		.timeline-box:nth-child(even) {
-			left: 52%;
-			text-align: left;
-		}
-	
-    /* Transparent White Box with 3D Effect */
-    .edu-wrap {
-      position: relative;
-      background: rgba(255, 255, 255, 0.15); /* More transparency */
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease-in-out;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(100px); /* Glass effect */
-      color: black; /* Changed font color to black */
-    }
-	
-		/* Book Icon Background */
-		.edu-wrap::before {
-			content: url('https://cdn-icons-png.flaticon.com/512/2232/2232688.png'); /* Open book icon */
-			position: absolute;
-			top: 10px;
-			left: 10px;
-			width: 40px;
-			height: 40px;
-			opacity: 0.3;
-		}
-	
-		/* Hover Effect */
-		.edu-wrap:hover {
-			transform: translateY(-3px) scale(1.02);
-			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-		}
-	
-		/* Small Circle Indicator */
-		.timeline-box::before {
-			content: "";
-			position: absolute;
-			width: 12px;
-			height: 12px;
-			background: #fff;
-			border: 3px solid #007bff;
-			top: 15px;
-			left: calc(50% - 6px);
-			border-radius: 50%;
-			z-index: 1;
-		}
-	
-		/* Date Styling */
-		.date {
-			font-weight: bold;
-			color: #e66686;
-		}
-	
-		/* Text inside the education box */
-		.edu-wrap * {
-			position: relative;
-			z-index: 1;
-			color: plum;
-		}
-	
-		/* Responsive Design */
-		@media (max-width: 768px) {
-			.timeline::after {
-				left: 20px;
-			}
-	
-			.timeline-box {
-				width: 100%;
-				padding-left: 40px;
-				text-align: left;
-				left: 0;
-			}
-	
-			.timeline-box::before {
-				left: 10px;
-			}
-		}
+/* Timeline Line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: #007bff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+/* Timeline Boxes */
+.timeline-box {
+  position: relative;
+  width: 48%;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+.timeline-box:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-box:nth-child(even) {
+  left: 52%;
+  text-align: left;
+}
+
+/* Transparent White Box with 3D Effect */
+.edu-wrap {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  color: black;
+}
+
+/* Book Icon Background */
+.edu-wrap::before {
+  content: url('https://cdn-icons-png.flaticon.com/512/2232/2232688.png');
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+}
+
+/* Hover Effect */
+.edu-wrap:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Small Circle Indicator */
+.timeline-box::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 3px solid #007bff;
+  top: 15px;
+  left: calc(50% - 6px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Date Styling */
+.date {
+  font-weight: bold;
+  color: #e66686;
+}
+
+/* Text inside the education box */
+.edu-wrap * {
+  position: relative;
+  z-index: 1;
+  color: plum;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .timeline::after {
+    left: 20px; /* Move timeline line to the left */
+  }
+
+  .timeline-box {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left;
+    left: 0;
+  }
+
+  .timeline-box:nth-child(even),
+  .timeline-box:nth-child(odd) {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-box::before {
+    left: 10px;
+  }
+}
 
 
 /* contact */
 
-/* Footer Background Styling */
-.footer-wrappr {
-  background: url('assets/img/gallery/footer-bg.png') no-repeat center center/cover;
-  padding: 50px 0; /* Adjust as needed */
-  color: white; /* Ensures text is readable on dark backgrounds */
-  position: relative;
+
+/* Ensure the contact section is centered properly */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers all items */
+  align-items: center; /* Aligns items vertically */
+  text-align: center;
+  margin-bottom: -200px;
 }
 
-.footer-wrappr::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Dark overlay for readability */
-  z-index: 1;
+/* Make individual contact boxes responsive */
+.contact-info .col-md-6, .contact-info .col-lg-3 {
+  display: flex;
+  justify-content: center;
 }
 
-.footer-wrappr * {
-  position: relative;
-  z-index: 2;
+.contact-info .box {
+  width: 100%; /* Ensures full width */
+  max-width: 350px; /* Limits width for better mobile appearance */
+  padding: 20px;
 }
 
-/* Footer Text Styling */
-.footer-tittle h4 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
+/* Center icons properly */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6em; /* Set a uniform size */
+  margin-bottom: 10px;
+  color: white !important; /* Ensures all icons are white */
 }
 
-.footer-tittle p,
-.footer-tittle a {
-  color: white; /* Ensures contrast with the background */
+/* Social Media Icons */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent; /* No background */
+  color: white !important; /* Ensure icons remain white */
+  font-size: 1.8em; /* Uniform size */
+  transition: 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+  color: #f8b400; /* Highlight color on hover */
+}
+
+/* Make all text uniform */
+.contact-info h3 {
+  font-size: 1.5em;
+  color: #ffbb00; /* Heading color */
+}
+
+.contact-info p, .contact-info a {
+  font-size: 1.2em;
+  color: white !important;
   text-decoration: none;
 }
 
-.footer-tittle a:hover {
-  text-decoration: underline;
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column; /* Stack items */
+    align-items: center; /* Align to center */
+  }
+
+  .contact-info .col-md-6, .contact-info .col-lg-3 {
+    width: 100%; /* Make each item take full width */
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-info .box {
+    width: 90%;
+    max-width: 350px;
+    margin-bottom: 20px; /* Add spacing */
+  }
+
+  .icon i {
+    font-size: 1.5em; /* Adjust for better scaling */
+  }
+
+  .footer-social a {
+    font-size: 1.5em; /* Adjust social media icons */
+  }
+
+  .contact-info h3, .contact-info p, .contact-info a {
+    font-size: 1em; /* Ensure text is readable on mobile */
+  }
 }
 
-/* Footer Social Icons */
-.footer-social a {
-  color: white;
-  font-size: 18px;
-  margin-right: 15px;
-  transition: 0.3s;
+
+/* Remove unwanted white space at the bottom */
+.footer-wrappr {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden; /* Prevents extra spacing issues */
 }
 
 
-
-.footer-social a:hover {
-  color: #f8b400; /* Change to a highlight color of your choice */
-}
-
-/* Footer Bottom */
+/* Ensure the entire footer section has no background gap */
 .footer-bottom-area {
-  background: rgba(0, 0, 0, 2); /* Slightly darkens the footer bottom */
-  padding: 15px 0;
-  text-align: center;
+  margin-top: -30px !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
-.footer-copy-right p {
-  color: white;
-  margin: 0;
-}
 
 
